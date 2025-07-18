@@ -535,3 +535,49 @@ def get_video_info(video_path):
     """
     from airtest.utils.video_processor import get_video_info as _get_video_info
     return _get_video_info(video_path)
+
+
+@logwrap
+def copy_video_preserve_audio(input_path, output_path=None, preserve_quality=True):
+    """
+    Copy video while preserving complete audio tracks
+
+    :param input_path: path to input video file
+    :param output_path: path to output video file, auto-generated if None
+    :param preserve_quality: whether to preserve original quality
+    :return: path to output video file
+    :platforms: Android, Windows, iOS
+    """
+    from airtest.utils.video_processor import copy_video_preserve_audio as _copy_video_preserve_audio
+    return _copy_video_preserve_audio(input_path, output_path, preserve_quality)
+
+
+@logwrap
+def enhance_video_audio(input_path, output_path=None, audio_boost=1.0, video_quality='high'):
+    """
+    Enhance video audio quality with optional volume boost
+
+    :param input_path: path to input video file
+    :param output_path: path to output video file, auto-generated if None
+    :param audio_boost: audio volume multiplier (1.0 = original volume)
+    :param video_quality: video quality level ('high', 'medium', 'low')
+    :return: path to output video file
+    :platforms: Android, Windows, iOS
+    """
+    from airtest.utils.video_processor import enhance_video_audio as _enhance_video_audio
+    return _enhance_video_audio(input_path, output_path, audio_boost, video_quality)
+
+
+@logwrap
+def extract_audio_from_video(input_path, output_path=None, audio_format='mp3'):
+    """
+    Extract audio track from video file
+
+    :param input_path: path to input video file
+    :param output_path: path to output audio file, auto-generated if None
+    :param audio_format: audio format ('mp3', 'wav', 'aac', 'flac')
+    :return: path to output audio file
+    :platforms: Android, Windows, iOS
+    """
+    from airtest.utils.video_processor import extract_audio_from_video as _extract_audio_from_video
+    return _extract_audio_from_video(input_path, output_path, audio_format)

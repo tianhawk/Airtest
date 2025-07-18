@@ -502,3 +502,36 @@ def assert_not_equal(first, second, msg=""):
     """
     if first == second:
         raise AssertionError("%s and %s are equal, message: %s" % (first, second, msg))
+
+
+"""
+Video Processing APIs
+"""
+
+
+@logwrap
+def remove_video_audio(input_path, output_path=None, keep_duration=True):
+    """
+    Remove audio from video while preserving video duration
+
+    :param input_path: path to input video file
+    :param output_path: path to output video file, auto-generated if None
+    :param keep_duration: whether to preserve original video duration
+    :return: path to output video file
+    :platforms: Android, Windows, iOS
+    """
+    from airtest.utils.video_processor import remove_video_audio as _remove_video_audio
+    return _remove_video_audio(input_path, output_path, keep_duration)
+
+
+@logwrap
+def get_video_info(video_path):
+    """
+    Get video file information including duration, audio/video streams
+
+    :param video_path: path to video file
+    :return: dictionary containing video information
+    :platforms: Android, Windows, iOS
+    """
+    from airtest.utils.video_processor import get_video_info as _get_video_info
+    return _get_video_info(video_path)
